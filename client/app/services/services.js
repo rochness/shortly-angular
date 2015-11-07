@@ -9,22 +9,21 @@ angular.module('shortly.services', [])
     }).then(cbsuccess, cberr);
   };
 
-  var addLinks = function(url, cbsuccess, cberr) {
+  var addLinks = function (url, cbsuccess, cberr) {
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: { url:url },
+      data: { url: url },
       headers: {
-         'Content-Type': 'text'
-      },
+         'Content-Type': 'application/json'
+      }
     }).then(cbsuccess, cberr);
   };
 
   return {
-    getLinks:getLinks,
-    addLinks:addLinks
-  }
-
+    getLinks: getLinks,
+    addLinks: addLinks
+  };
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
