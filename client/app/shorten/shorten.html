@@ -1,6 +1,7 @@
 <div id='container'>
-  <form name="shortenForm" ng-submit='addLink()'>
-    <input type='text' ng-model='url'>
+  <form name="shortenForm" ng-submit='addLink()' ng-model = 'typing'>
+    <input type='text' ng-model='url' class = "{{show()}}">
+    <h3>{{text()}}</h3>
     <button>Create Link</button>
   </form>
 
