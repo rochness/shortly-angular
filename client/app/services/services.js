@@ -9,15 +9,12 @@ angular.module('shortly.services', [])
     }).then(cbsuccess, cberr);
   };
 
-  var addLinks = function (url, cbsuccess, cberr) {
+  var addLinks = function (url) {
     return $http({
       method: 'POST',
       url: '/api/links',
       data: { url: url },
-      headers: {
-         'Content-Type': 'application/json'
-      }
-    }).then(cbsuccess, cberr);
+    });
   };
 
   return {

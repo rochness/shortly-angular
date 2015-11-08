@@ -1,8 +1,11 @@
 <div id='container'>
-  <form name="shortenForm" ng-submit='addLink()' ng-model = 'typing'>
-    <input type='text' ng-model='url' class = "{{show()}}">
-    <h3>{{text()}}</h3>
-    <button>Create Link</button>
+  <form name="shortenForm" ng-submit='addLink()' ng-model = 'typing' novalidate >
+    <input ng-class = "{'error': shortenForm.link.$error && shortenForm.link.$dirty}" name="link" type='url' ng-model='url'>
+    
+     <h3 ng-show="shortenForm.link.$error.url && shortenForm.$dirty">Not a valid URL</h3>
+     <h3 ng-if="shortenForm.link.$valid && shortenForm.link.$dirty">URL Required</h3>
+
+    <button type="submit" ng-disabled='shortlyForm.$invalid'>Create Link</button>
   </form>
 
 </div>
